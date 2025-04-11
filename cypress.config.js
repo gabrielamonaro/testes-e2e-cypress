@@ -6,9 +6,10 @@ module.exports = defineConfig({
     baseUrl: "https://notes-serverless-app.com",
     defaultCommandTimeout: 15000,
     requestTimeout: 15000,
-    // setupNodeEvents(on, config) {
-    //   // implement node event listeners here
-    // },
+    setupNodeEvents(on, config) {
+      require("@cypress/grep/src/plugin")(config);
+      return config;
+    },
   },
   chromeWebSecurity: false,
   env: {

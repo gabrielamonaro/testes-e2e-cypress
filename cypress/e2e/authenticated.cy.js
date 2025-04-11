@@ -33,7 +33,7 @@ describe("Scenarios where authentication is a pre-condition", () => {
     cy.wait("@paymentRequest").its("state").should("be.equal", "Complete");
   });
 
-  it("logs out", () => {
+  it("logs out", { tags: "@desktop-and-tablet" }, () => {
     cy.visit("/");
     cy.wait("@getNotes");
 
